@@ -8,25 +8,27 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     message(WARNING "Microsoft compiler not supported.")
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 10.2)
+    if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 10.2)
         message(FATAL_ERROR "GCC version must be at least 10.2!")
     endif()
-elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 11.0)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 11.0)
         message(FATAL_ERROR "Clang version must be at least 11.0!")
     endif()
 else()
-    message(WARNING "You are using an unsupported compiler! Compilation has only been tested with Clang and GCC.")
+    message(WARNING "You are using an unsupported compiler! Compilation has
+            only been tested with Clang and GCC.")
 endif()
 
-set(ANY_TARGET_WARN all extra pedantic sign-conversion cast-qual disabled-optimization
-                  init-self missing-include-dirs sign-promo switch-default undef redundant-decls)
+set(ANY_TARGET_WARN all extra pedantic sign-conversion cast-qual
+    disabled-optimization init-self missing-include-dirs sign-promo
+    switch-default undef redundant-decls)
 
 set(CMAKE_MACOSX_RPATH 1)
 set(BUILD_SHARED_LIBS ON)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 foreach(WARN ${ANY_TARGET_WARN})
     add_compile_options(-W${WARN})
