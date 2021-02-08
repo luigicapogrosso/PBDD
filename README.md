@@ -4,4 +4,5 @@
 [![Build Status](https://github.com/luigicapogrosso/PBDD/workflows/Continuous%20Integration/badge.svg)](https://github.com/luigicapogrosso/PBDD/actions)
 [![codecov](https://codecov.io/gh/luigicapogrosso/PBDD/branch/master/graph/badge.svg)](https://codecov.io/gh/luigicapogrosso/PBDD)
 
-**A Parallel implementation of Binary Decision Diagram.**
+## Introduction
+This project is a Parallel implementation of [Binary Decision Diagram](https://en.wikipedia.org/wiki/Binary_decision_diagram). It focuses on high performance, usability, and correctness.
